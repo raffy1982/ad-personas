@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<item>
+		<reference href="ecg-data-feed.xml"/>
+		<metadata href="metadata/ecg-data-feed.xml"/>
+	</item>
+	<item>
+		<reference href="single-ecg-analysis.xml"/>
+		<metadata href="metadata/single-ecg-analysis.xml"/>
+	</item>
+	<item>
+		<reference href="group-ecg-analysis.xml"/>
+		<metadata href="metadata/group-ecg-analysis.xml"/>
+	</item>
+</index>

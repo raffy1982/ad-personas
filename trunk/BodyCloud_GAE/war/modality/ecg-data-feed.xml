@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modality>
+	<inputSpecification>
+		<column>
+			<name>heartbeat</name>
+			<type>DOUBLE</type>
+			<source>HEARTBEAT</source>
+		</column>
+	</inputSpecification>
+	<init-action>
+		<uri>/group/london-marathon/data</uri>
+		<method>DELETE</method>
+	</init-action>
+	<action>
+		<uri>/group/london-marathon/data</uri>
+		<method>PUT</method>
+		<repeat>true</repeat>
+		<trigger after="10" />
+	</action>
+</modality>

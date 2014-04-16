@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modality>
+	<init-action>
+		<uri>/group/london-marathon/contributors</uri>
+		<method>GET</method>
+	</init-action>
+	<action>
+		<uri>/engine/workflow/ecg</uri>
+		<method>POST</method>
+		<parameter>
+			<name>sourceUser</name>
+			<reference xpath="//users/user" type="MAP" />
+		</parameter>
+		<parameter>
+			<name>sourceGroup</name>
+			<value>london-marathon</value>
+		</parameter>
+		<repeat>false</repeat>
+	</action>
+	<outputSpecification>
+		<column>
+			<name>rr</name>
+			<type>DOUBLE</type>
+		</column>
+		<view>/view/tachogram.xml</view>
+	</outputSpecification>
+</modality>
