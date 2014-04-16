@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<workflow>
+	<node>
+		<type>UserDataReader</type>
+	</node>
+	<node>
+		<type>QRS</type>
+	</node>
+</workflow>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group>
+	<metadata>
+		<name>Data Feed</name>
+		<company>Fake London Marathon Medical Commission</company>
+	</metadata>
+	<dataSpecification>
+		<column>
+			<name>heartbeat</name>
+			<type>DOUBLE</type>
+			<source>HEARTBEAT</source>
+		</column>
+	</dataSpecification>
+</group>
