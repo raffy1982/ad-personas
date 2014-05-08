@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -116,11 +117,21 @@ public class WorkflowServerResource extends BasicServerResource<EngineWorkflow> 
 		worker.setParameter(InstancesMapper.class.getName(), getInstancesMapper());
 		worker.setParameter(UserDataReader.APPLICANT, applicant);
 		for (String param : worker.getParameters()) {
+			/* **WORKAROUND**
 			String value = parameters.getFirstValue(param);
-			getLogger().info(
-					"setting parameter: " + param + "=" + value);
-			worker.setParameter(param, value);
-		}
+			*/
+			if(param.equals("sourceUser"))
+				{
+					getLogger().info("setting parameter: " + param + "=" + applicant.getName());
+					worker.setParameter(param, applicant.getName());
+				}
+			else
+			{
+				String value = parameters.getFirstValue(param);
+				worker.setParameter(param, value);
+			}
+				
+			}
 		if (worker.configure())
 			worker.run();
 		if (worker.getStatus() == Worker.STATUS_JOB_COMPLETED) {
@@ -157,6 +168,8 @@ public class WorkflowServerResource extends BasicServerResource<EngineWorkflow> 
 	
 	public void consumeTask(Form form) {
 		String uuid = form.getFirstValue(PARAMETER_TASK);
+		Logger l = Logger.getLogger(getClass().getSimpleName());
+		l.severe("UUID: "+uuid);
 		Task t = (Task) getEntityMapper().findByUUID(uuid);
 		Instances output = execute(form, t.getApplicant());
 		if (output != null && !output.isEmpty()) {
