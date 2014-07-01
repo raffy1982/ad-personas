@@ -34,9 +34,9 @@ public class MainApplication extends Application {
 		Application kdApplication = new KDApplication(applicationContext, createOutboundRoot());
 		
 		// COMMENT THE FOLLOWING TWO LINES IF YOU WANT TO REMOVE AUTH-CHECK
-		ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");
+		//ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");
 		//guard.setVerifier(new OAuthVerifier(getLogger(), true));
-		guard.setVerifier(new OAuthVerifier(getLogger(), false));
+		//guard.setVerifier(new OAuthVerifier(getLogger(), false));
 		
 		Filter core = new Filter() {
 			@Override
@@ -51,9 +51,9 @@ public class MainApplication extends Application {
 			}
 		};
 
-		//core.setNext(kdApplication); // DE-COMMENT THIS LINE IF YOU WANT TO REMOVE AUTH-CHECK (AND COMMENT THE FOLLOWING TWO LINES)
-		core.setNext(guard);
-		guard.setNext(kdApplication);
+		core.setNext(kdApplication); // DE-COMMENT THIS LINE IF YOU WANT TO REMOVE AUTH-CHECK (AND COMMENT THE FOLLOWING TWO LINES)
+		//core.setNext(guard);
+		//guard.setNext(kdApplication);
 		
 		router.attachDefault(core);
 

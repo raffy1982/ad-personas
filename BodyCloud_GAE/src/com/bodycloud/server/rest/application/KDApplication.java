@@ -10,6 +10,13 @@ import org.restlet.data.ChallengeResponse;
 import org.restlet.data.ChallengeScheme;
 import org.restlet.routing.Router;
 
+import com.bodycloud.ext.rehab.administrator.DeleteDoctorRestlet;
+import com.bodycloud.ext.rehab.administrator.GetDoctorsRestlet;
+import com.bodycloud.ext.rehab.administrator.LoginRehabAdministratorRestlet;
+import com.bodycloud.ext.rehab.administrator.RehabDoctorRegistrationRestlet;
+import com.bodycloud.ext.rehab.relative.GetUsersRestlet;
+import com.bodycloud.ext.rehab.relative.LoginRehabDoctorRestlet;
+import com.bodycloud.ext.rehab.relative.RehabUserRegistrationRestlet;
 import com.bodycloud.lib.rest.api.GroupResource;
 import com.bodycloud.server.entity.Group;
 import com.bodycloud.server.rest.resource.IndexServerResource;
@@ -80,6 +87,22 @@ public class KDApplication extends Application {
 //			});
 //		}
 
+		
+
+		//rehab tutor administrator restlet
+		router.attach(RehabDoctorRegistrationRestlet.URI, RehabDoctorRegistrationRestlet.class);
+		router.attach(LoginRehabAdministratorRestlet.URI, LoginRehabAdministratorRestlet.class);
+		router.attach(GetDoctorsRestlet.URI, GetDoctorsRestlet.class);
+		router.attach(DeleteDoctorRestlet.URI, DeleteDoctorRestlet.class);
+		
+		
+		//rehab tutor doctor restlet
+		router.attach(RehabUserRegistrationRestlet.URI, RehabUserRegistrationRestlet.class);
+		router.attach(LoginRehabDoctorRestlet.URI, LoginRehabDoctorRestlet.class);
+		
+		
+		router.attach(GetUsersRestlet.URI, GetUsersRestlet.class);
+		
 		return router;
 	}
 	
