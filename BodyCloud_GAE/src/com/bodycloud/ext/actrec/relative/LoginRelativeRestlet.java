@@ -1,8 +1,7 @@
-package com.bodycloud.ext.rehab.relative;
+package com.bodycloud.ext.actrec.relative;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 import org.restlet.data.MediaType;
 import org.restlet.ext.xml.DomRepresentation;
@@ -14,14 +13,14 @@ import org.w3c.dom.Element;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Relative;
-import com.bodycloud.ext.rehab.db.Patient;
-import com.bodycloud.ext.rehab.user.XMLUtils;
+import com.bodycloud.ext.actrec.db.Patient;
+import com.bodycloud.ext.actrec.db.Relative;
+import com.bodycloud.ext.actrec.user.XMLUtils;
 
 
-public class LoginRehabDoctorRestlet extends RehabDoctorServerResource {
+public class LoginRelativeRestlet extends RehabDoctorServerResource {
 
-	public static final String URI = "/rehabdoctor/loginrehabdoctor";
+	public static final String URI = "/activityrecognition/loginrelative";
 
 	@Post("xml")
 	public Representation acceptItem(Representation entity) {
@@ -54,7 +53,7 @@ public class LoginRehabDoctorRestlet extends RehabDoctorServerResource {
 				result = XMLUtils.createXMLError("Login Error: ", "Username Errato!");
 			}
 		else{
-			if(rd.getPassword().equals(""+password.hashCode()))
+			if(rd.getPassword().equals(""+password))
 			 {
 				Element root = d.createElement("loginrehabdoctorOutput");
 				d.appendChild(root);

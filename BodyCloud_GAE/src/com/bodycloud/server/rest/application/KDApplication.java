@@ -10,13 +10,16 @@ import org.restlet.data.ChallengeResponse;
 import org.restlet.data.ChallengeScheme;
 import org.restlet.routing.Router;
 
-import com.bodycloud.ext.rehab.administrator.DeleteDoctorRestlet;
-import com.bodycloud.ext.rehab.administrator.GetDoctorsRestlet;
-import com.bodycloud.ext.rehab.administrator.LoginRehabAdministratorRestlet;
-import com.bodycloud.ext.rehab.administrator.RehabDoctorRegistrationRestlet;
-import com.bodycloud.ext.rehab.relative.GetUsersRestlet;
-import com.bodycloud.ext.rehab.relative.LoginRehabDoctorRestlet;
-import com.bodycloud.ext.rehab.relative.RehabUserRegistrationRestlet;
+import com.bodycloud.ext.actrec.administrator.DeleteDoctorRestlet;
+import com.bodycloud.ext.actrec.administrator.GetRelativesRestlet;
+import com.bodycloud.ext.actrec.administrator.LoginAdministratorRestlet;
+import com.bodycloud.ext.actrec.administrator.RelativeRegistrationRestlet;
+import com.bodycloud.ext.actrec.patient.GetPatientInfoRestlet;
+import com.bodycloud.ext.actrec.patient.LoginPatientRestlet;
+import com.bodycloud.ext.actrec.relative.DeletePatientRestlet;
+import com.bodycloud.ext.actrec.relative.GetPatientsRestlet;
+import com.bodycloud.ext.actrec.relative.LoginRelativeRestlet;
+import com.bodycloud.ext.actrec.relative.PatientRegistrationRestlet;
 import com.bodycloud.lib.rest.api.GroupResource;
 import com.bodycloud.server.entity.Group;
 import com.bodycloud.server.rest.resource.IndexServerResource;
@@ -89,19 +92,22 @@ public class KDApplication extends Application {
 
 		
 
-		//rehab tutor administrator restlet
-		router.attach(RehabDoctorRegistrationRestlet.URI, RehabDoctorRegistrationRestlet.class);
-		router.attach(LoginRehabAdministratorRestlet.URI, LoginRehabAdministratorRestlet.class);
-		router.attach(GetDoctorsRestlet.URI, GetDoctorsRestlet.class);
+		//activity recognition administrator restlet
+		router.attach(RelativeRegistrationRestlet.URI, RelativeRegistrationRestlet.class);
+		router.attach(LoginAdministratorRestlet.URI, LoginAdministratorRestlet.class);
+		router.attach(GetRelativesRestlet.URI, GetRelativesRestlet.class);
 		router.attach(DeleteDoctorRestlet.URI, DeleteDoctorRestlet.class);
 		
 		
-		//rehab tutor doctor restlet
-		router.attach(RehabUserRegistrationRestlet.URI, RehabUserRegistrationRestlet.class);
-		router.attach(LoginRehabDoctorRestlet.URI, LoginRehabDoctorRestlet.class);
+		//activity recognition relative restlet
+		router.attach(PatientRegistrationRestlet.URI, PatientRegistrationRestlet.class);
+		router.attach(LoginRelativeRestlet.URI, LoginRelativeRestlet.class);
+		router.attach(DeletePatientRestlet.URI, DeletePatientRestlet.class);
+		router.attach(GetPatientsRestlet.URI, GetPatientsRestlet.class);
 		
-		
-		router.attach(GetUsersRestlet.URI, GetUsersRestlet.class);
+		//activity recognition patient restlet
+		router.attach(LoginPatientRestlet.URI, LoginPatientRestlet.class);
+		router.attach(GetPatientInfoRestlet.URI, GetPatientInfoRestlet.class);
 		
 		return router;
 	}

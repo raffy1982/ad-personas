@@ -1,11 +1,11 @@
-package com.bodycloud.ext.rehab.user;
+package com.bodycloud.ext.actrec.user;
 
 import org.restlet.data.Status;
 import org.restlet.resource.ResourceException;
 
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Patient;
+import com.bodycloud.ext.actrec.db.Patient;
 import com.bodycloud.server.entity.User;
 import com.bodycloud.server.rest.resource.KDServerResource;
 

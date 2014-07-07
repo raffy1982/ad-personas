@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.patient;
+package com.bodycloud.ext.actrec.patient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +12,14 @@ import org.w3c.dom.Element;
 
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Patient;
-import com.bodycloud.ext.rehab.relative.RehabDoctorServerResource;
-import com.bodycloud.ext.rehab.user.XMLUtils;
+import com.bodycloud.ext.actrec.db.Patient;
+import com.bodycloud.ext.actrec.relative.RehabDoctorServerResource;
+import com.bodycloud.ext.actrec.user.XMLUtils;
 
 
-public class LoginRehabPatientRestlet extends RehabDoctorServerResource {
+public class LoginPatientRestlet extends RehabDoctorServerResource {
 
-	public static final String URI = "/rehabdoctor/loginrehabpatient";
+	public static final String URI = "/activityrecognition/loginpatient";
 
 	@Post("xml")
 	public Representation acceptItem(Representation entity) {

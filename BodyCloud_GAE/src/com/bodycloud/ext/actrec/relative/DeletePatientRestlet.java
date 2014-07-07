@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.administrator;
+package com.bodycloud.ext.actrec.relative;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -13,13 +13,14 @@ import org.w3c.dom.Element;
 
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Relative;
-import com.bodycloud.ext.rehab.user.XMLUtils;
+import com.bodycloud.ext.actrec.db.Relative;
+import com.bodycloud.ext.actrec.db.Patient;
+import com.bodycloud.ext.actrec.user.XMLUtils;
 import com.bodycloud.server.rest.resource.KDServerResource;
 
-public class RehabDoctorRegistrationRestlet extends KDServerResource {
+public class DeletePatientRestlet extends KDServerResource {
 
-	public static final String URI = "/rehabdoctor/rehabdoctorregistration";
+	public static final String URI = "/activityrecognition/deletepatient";
 
 	@Post("xml")
 	public Representation acceptItem(Representation entity) {
@@ -31,9 +32,7 @@ public class RehabDoctorRegistrationRestlet extends KDServerResource {
 			Document doc = input.getDocument();
 			Element rootEl = doc.getDocumentElement();
 			String username = XMLUtils.getTextValue(rootEl, "username");
-			String password = XMLUtils.getTextValue(rootEl, "password");
-			String firstName = XMLUtils.getTextValue(rootEl, "firstname");
-			String lastName = XMLUtils.getTextValue(rootEl, "lastname");
+			
 
 			// output
 			representation = new DomRepresentation(
@@ -44,30 +43,29 @@ public class RehabDoctorRegistrationRestlet extends KDServerResource {
 
 			String res = "";
 			try {
-				ObjectifyService.register(Relative.class);
+				ObjectifyService.register(Patient.class);
 			} catch (Exception e) {
 			}
 
 			Objectify ofy = ObjectifyService.begin();
-			Relative dct= ofy.query(Relative.class)
-					.filter("username", username.toLowerCase()).get();
-			if (dct!= null) {
-				res = "doctor already registered";
+			Patient us = ofy.query(Patient.class).filter("username", username).get();
+			if (us == null) {
+				res = "user not found.";
 			} else {
 				
-				Relative doctor = new Relative(username.toLowerCase(), password, firstName, lastName);
-				ofy.put(doctor);
-				res = "OK " + doctor.getUsername();
+				ofy.delete(us);
+				res = "OK, " + us.getUsername()+ " deleted.";
+				
 			}
-
+			getLogger().info("res: "+res);
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("result", res);
 			Document d = representation.getDocument();
-			d = XMLUtils.createXMLResult("rehabdoctorregistrationOutput", map, d);
+			d = XMLUtils.createXMLResult("rehabDeleteUserOutput", map, d);
 
 			
 		} catch (IOException e) {
-			representation = XMLUtils.createXMLError("doctor registration error",
+			representation = XMLUtils.createXMLError("user delete error",
 					"" + e.getMessage());
 		}
 
