@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.relative;
+package com.bodycloud.ext.actrec.relative;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,8 +14,8 @@ import org.w3c.dom.Element;
 
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Patient;
-import com.bodycloud.ext.rehab.user.XMLUtils;
+import com.bodycloud.ext.actrec.db.Patient;
+import com.bodycloud.ext.actrec.user.XMLUtils;
 import com.bodycloud.server.rest.resource.KDServerResource;
 
 public class RehabTestGetRestlet extends KDServerResource {

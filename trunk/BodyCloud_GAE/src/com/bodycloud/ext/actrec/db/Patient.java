@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.db;
+package com.bodycloud.ext.actrec.db;
 
 import java.io.Serializable;
 import java.util.Date;

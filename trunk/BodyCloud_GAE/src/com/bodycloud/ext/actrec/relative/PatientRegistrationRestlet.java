@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.relative;
+package com.bodycloud.ext.actrec.relative;
 
 import java.io.IOException;
 import java.util.Date;
@@ -17,14 +17,14 @@ import org.w3c.dom.Element;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Relative;
-import com.bodycloud.ext.rehab.db.Patient;
-import com.bodycloud.ext.rehab.user.XMLUtils;
+import com.bodycloud.ext.actrec.db.Patient;
+import com.bodycloud.ext.actrec.db.Relative;
+import com.bodycloud.ext.actrec.user.XMLUtils;
 import com.bodycloud.server.rest.resource.KDServerResource;
 
-public class RehabUserRegistrationRestlet extends RehabDoctorServerResource{//KDServerResource {
+public class PatientRegistrationRestlet extends RehabDoctorServerResource{//KDServerResource {
 
-	public static final String URI = "/rehabdoctor/rehabPatientregistration";
+	public static final String URI = "/activityrecognition/patientregistration";
 
 	@Post("xml")
 	public Representation acceptItem(Representation entity) {

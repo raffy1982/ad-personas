@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.user;
+package com.bodycloud.ext.actrec.user;
 
 import java.io.IOException;
 import java.util.Map;

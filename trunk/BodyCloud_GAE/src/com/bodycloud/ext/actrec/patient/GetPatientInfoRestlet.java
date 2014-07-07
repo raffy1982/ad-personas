@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.patient;
+package com.bodycloud.ext.actrec.patient;
 
 
 
@@ -14,14 +14,14 @@ import org.w3c.dom.Element;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Relative;
-import com.bodycloud.ext.rehab.db.Patient;
-import com.bodycloud.ext.rehab.relative.RehabDoctorServerResource;
-import com.bodycloud.ext.rehab.user.XMLUtils;
+import com.bodycloud.ext.actrec.db.Patient;
+import com.bodycloud.ext.actrec.db.Relative;
+import com.bodycloud.ext.actrec.relative.RehabDoctorServerResource;
+import com.bodycloud.ext.actrec.user.XMLUtils;
 
 public class GetPatientInfoRestlet extends RehabDoctorServerResource {
 
-	public static final String URI = "/rehabdoctor/getpatientinfo";
+	public static final String URI = "/activityrecognition/getpatientinfo";
 
 	@Post("xml")
 	public Representation acceptItem(Representation entity) {

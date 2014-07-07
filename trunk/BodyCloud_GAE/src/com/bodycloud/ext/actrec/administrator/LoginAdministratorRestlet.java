@@ -1,7 +1,8 @@
-package com.bodycloud.ext.rehab.administrator;
+package com.bodycloud.ext.actrec.administrator;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.restlet.data.MediaType;
 import org.restlet.ext.xml.DomRepresentation;
 import org.restlet.representation.Representation;
@@ -11,19 +12,19 @@ import org.w3c.dom.Element;
 
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-import com.bodycloud.ext.rehab.db.Administrator;
-import com.bodycloud.ext.rehab.db.Relative;
-import com.bodycloud.ext.rehab.relative.RehabDoctorServerResource;
-import com.bodycloud.ext.rehab.user.XMLUtils;
+import com.bodycloud.ext.actrec.db.Administrator;
+import com.bodycloud.ext.actrec.db.Relative;
+import com.bodycloud.ext.actrec.relative.RehabDoctorServerResource;
+import com.bodycloud.ext.actrec.user.XMLUtils;
 
 
-public class LoginRehabAdministratorRestlet extends RehabDoctorServerResource {
+public class LoginAdministratorRestlet extends RehabDoctorServerResource {
 
 	static {
         ObjectifyService.register(Administrator.class);
     }
 	
-	public static final String URI = "/rehabdoctor/loginrehabAdministrator";
+	public static final String URI = "/activityrecognition/loginAdministrator";
 
 	@Post("xml")
 	public Representation acceptItem(Representation entity) {

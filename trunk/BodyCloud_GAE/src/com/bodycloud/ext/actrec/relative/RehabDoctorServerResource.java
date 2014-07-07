@@ -1,4 +1,4 @@
-package com.bodycloud.ext.rehab.relative;
+package com.bodycloud.ext.actrec.relative;
 
 import java.util.Date;
 import java.util.List;
@@ -9,11 +9,9 @@ import org.restlet.resource.ResourceException;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
-
-
-import com.bodycloud.ext.rehab.db.Administrator;
-import com.bodycloud.ext.rehab.db.Relative;
-import com.bodycloud.ext.rehab.db.Patient;
+import com.bodycloud.ext.actrec.db.Administrator;
+import com.bodycloud.ext.actrec.db.Patient;
+import com.bodycloud.ext.actrec.db.Relative;
 import com.bodycloud.server.entity.User;
 import com.bodycloud.server.rest.resource.KDServerResource;
 
