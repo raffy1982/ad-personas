@@ -37,7 +37,7 @@ public class DataSpecification implements Serializable {
 	}
 	
 	public enum InputSource {
-		HEARTBEAT, CLOCK
+		HEARTBEAT, CLOCK, GENERIC
 	}
 	
 	@XmlElement(name="column")
