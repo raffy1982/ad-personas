@@ -224,7 +224,8 @@ public abstract class BaseClient implements Runnable {
 		this.executionLog.appendChild(rootElement);
 
 		queue = new LinkedList<ServerAction>();
-		queue.add(new ServerAction(modality.getInitAction()));
+		if(modality.getInitAction() != null) 
+			queue.add(new ServerAction(modality.getInitAction()));
 		queue.add(new ServerAction(modality.getAction()));
 		while (canRun() && !queue.isEmpty()) {
 			currentAction = queue.poll();
