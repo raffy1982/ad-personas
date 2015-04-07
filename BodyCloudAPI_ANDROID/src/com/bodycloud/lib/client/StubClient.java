@@ -88,19 +88,19 @@ public class StubClient extends BaseClient {
 	public static void main(String[] args) throws Exception {
 //		String url = "http://localhost:8888";
 		String url = "https://snapshot.kd-cloud.appspot.com";
-		BaseClient kdcloud = new StubClient(url);
-		kdcloud.setRepeatAllowed(false);
-		kdcloud.setAuthentication("admin", "admin");
-		List<ModalitySpecification> modalities = kdcloud.getModalities();
+		BaseClient bodycloud = new StubClient(url);
+		bodycloud.setRepeatAllowed(false);
+		bodycloud.setAuthentication("admin", "admin");
+		List<ModalitySpecification> modalities = bodycloud.getModalities();
 		ModalitySpecification dataFeed = modalities.get(0);
-		kdcloud.setModality(dataFeed);
-		kdcloud.executeModality();
+		bodycloud.setModality(dataFeed);
+		bodycloud.executeModality();
 		ModalitySpecification single = modalities.get(1);
-		kdcloud.setModality(single);
-		kdcloud.executeModality();
+		bodycloud.setModality(single);
+		bodycloud.executeModality();
 		ModalitySpecification global = modalities.get(2);
-		kdcloud.setModality(global);
-		kdcloud.executeModality();
+		bodycloud.setModality(global);
+		bodycloud.executeModality();
 	}
 
 	@Override
