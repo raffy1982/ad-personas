@@ -54,13 +54,14 @@ public class DataSpecification implements Serializable {
 	}
 	
 	public enum InputSource {
-		HEARTBEAT, CLOCK;
+		HEARTBEAT, CLOCK, GENERIC;
 		
 		@Override
 		public String toString() {
 			switch (this) {
 			case HEARTBEAT: return "HEARTBEAT";
 			case CLOCK: return "CLOCK";
+			case GENERIC: return "GENERIC";
 			default: return super.toString();
 			}
 		}
@@ -69,6 +70,7 @@ public class DataSpecification implements Serializable {
 			if (s != null) {
 				if (s.equalsIgnoreCase("HEARTBEAT")) return HEARTBEAT;
 				else if (s.equalsIgnoreCase("CLOCK")) return CLOCK;
+				else if (s.equalsIgnoreCase("GENERIC")) return GENERIC;
 			}
 			return null;
 		}

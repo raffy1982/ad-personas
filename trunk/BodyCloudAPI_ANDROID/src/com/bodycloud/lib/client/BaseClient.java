@@ -50,7 +50,7 @@ public abstract class BaseClient implements Runnable {
 	static String baseUri;
 
 	// the executing modality
-	ModalitySpecification modality;
+	protected ModalitySpecification modality;
 
 	// used for restlet requests
 	ClientResource resource;
@@ -262,7 +262,8 @@ public abstract class BaseClient implements Runnable {
 		this.executionLog.appendChild(rootElement);
 
 		queue = new LinkedList<ServerAction>();
-		queue.add(new ServerAction(modality.getInitAction()));
+		if(modality.getInitAction() != null) 
+			queue.add(new ServerAction(modality.getInitAction()));
 		queue.add(new ServerAction(modality.getAction()));
 		while (canRun() && !queue.isEmpty()) {
 			currentAction = queue.poll();

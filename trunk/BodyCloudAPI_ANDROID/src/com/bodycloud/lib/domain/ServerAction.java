@@ -157,7 +157,9 @@ public class ServerAction implements Serializable {
 		
 		returnString += postP;
 		
-		if (repeat) returnString += " - repeat: " + repeat + " - trigger after: " + trigger.after;
+		returnString += " - repeat: " + repeat;
+		if (repeat) returnString += " - trigger after: " + trigger.after;	
+		
 		if(postForm != null) returnString +=  " - postForm: " + postForm;
 		
 		return returnString;
