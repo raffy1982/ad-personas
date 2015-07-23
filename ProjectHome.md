@@ -1,0 +1,6 @@
+The progress in science and medicine in the recent years have helped to significantly increase life expectancy. ICT technologies - and the Wireless Body Sensor Networks (BSNs) in particular – play a central role at improving the quality of the current health-care systems and services, by integrating them in future "smart cities" eco-system.
+BSNs consist of wearable sensors applied to the human body for real-time continuous monitoring of physical activities and vital signs. Relevant BSNs application domains include prevention, early detection and monitoring of diseases, elderly assistance at home, fitness, gesture recognition, motor rehabilitation, cognitive and emotion recognition.
+Some research prototypes of BSN have been developed, but very few hit the market and no one has gained wide success. One of the reasons is that current prototypes are tightly coupled to specific applications and are not interoperable.
+So, to fully exploit their potential, the AD-PERSONAS project aims to develop an open platform for continuous and heterogeneous monitoring of assisted livings.
+
+AD-PERSONAS is  supported by the "2007-2013 NOP for Research and Competitiveness for the Convergence Regions (Calabria, Campania, Puglia and Sicilia)" (http://www.ponrec.it/) with code PON04a3 00238.
